@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  node1:
+    build: ./worker
+    #image: openjdk:8-alpine
+    container_name: hadoop-from-scratch-worker-1
+    ports:
+      - "2201:22"
+    expose:
+      - 22
+    volumes:
+      -  ./public-keys:/root/.ssh/authorized_keys
+    environment:
+      - CLUSTER_NAME=test
+      - SSH_ENABLE_ROOT=true
+  node2:
+    build: ./worker
+    container_name: hadoop-from-scratch-worker-2
+    ports:
+      - "2202:22"
+    expose:
+      - 22
+    volumes:
+      -  ./public-keys:/root/.ssh/authorized_keys
+    environment:
+      - CLUSTER_NAME=test
+      - SSH_ENABLE_ROOT=true
+  node3:
+    build: ./worker
+    container_name: hadoop-from-scratch-worker-3
+    ports:
+      - "2203:22"
+    expose:
+      - 22
+    volumes:
+      -  ./public-keys:/root/.ssh/authorized_keys
+    environment:
+      - CLUSTER_NAME=test
+      - SSH_ENABLE_ROOT=true
