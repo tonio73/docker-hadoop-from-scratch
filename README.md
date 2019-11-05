@@ -48,8 +48,9 @@ $ ssh -p 2201 root@localhost
 ```
 
 Example 2, copy a file to node 2:
-``shell
+```shell
 $ scp -P 2202 README.md root@localhost:
+```
 
 ## Caveats
 
