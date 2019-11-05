@@ -44,12 +44,12 @@ The three nodes SSH port (22) is remapped on localhost ports : 2201, 2202, 2203.
 Example 1, open an SSH terminal on node 1: 
 
 ```shell
-$ ssh -p 2201 root
+$ ssh -p 2201 root@localhost
 ```
 
 Example 2, copy a file to node 2:
 ``shell
-$ scp -P 2202 README root@localhost:
+$ scp -P 2202 README.md root@localhost:
 
 ## Caveats
 
