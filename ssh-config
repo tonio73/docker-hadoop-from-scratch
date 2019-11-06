@@ -1,0 +1,3 @@
+Host hadoop-from-scratch-worker-*
+   StrictHostKeyChecking no
+   UserKnownHostsFile=/dev/null
