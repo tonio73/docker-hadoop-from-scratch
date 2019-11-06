@@ -12,17 +12,38 @@ License : MIT
 
 From the root directory containing the _docker-compose.yml_ file:
 
-1. Configure public keys to be used to log on the nodes
+1. Configure SSH keys to be used to log on the nodes
 
-Create a file named _public-keys_ that contains the public keys. 
+Two keys are required : 
+- 1 to connect from the host to any container (as root but using your local user's key)
+- 1 to connect from a container to another container (as root) 
+
+Create a private-public pair of a RSA key (security matters less as this key is only used on the virtual network within the host):
+
+```shell
+$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/my-login/.ssh/id_rsa): id_rsa
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in id_rsa.
+Your public key has been saved in id_rsa.pub.
+The key fingerprint is: ...
+The key's randomart image is: ...
+```
+
+Create a file named _public-keys_ that contains the 2 public keys. 
 
 For example, if you have an ECDSA public key in your home, create a symbolic link:
 
 ```shell
-$ ln -s ~/.ssh/id_ecdsa.pub public-keys
+$ cat ~/.ssh/id_ecdsa.pub id_rsa.pub > public-keys
 ```
 
 2. launch 
+
+On first launch will download the image and build the containers
+
 ```shell
 $ docker-compose up
 ```

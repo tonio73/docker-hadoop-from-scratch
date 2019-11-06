@@ -10,7 +10,9 @@ services:
     expose:
       - 22
     volumes:
-      -  ./public-keys:/root/.ssh/authorized_keys
+      - ./public-keys:/root/.ssh/authorized_keys
+      - ./id_rsa:/root/.ssh/id_rsa
+      - ./ssh-config:/root/.ssh/config
     environment:
       - CLUSTER_NAME=test
       - SSH_ENABLE_ROOT=true
@@ -22,7 +24,9 @@ services:
     expose:
       - 22
     volumes:
-      -  ./public-keys:/root/.ssh/authorized_keys
+      - ./public-keys:/root/.ssh/authorized_keys
+      - ./id_rsa:/root/.ssh/id_rsa
+      - ./ssh-config:/root/.ssh/config
     environment:
       - CLUSTER_NAME=test
       - SSH_ENABLE_ROOT=true
@@ -34,7 +38,9 @@ services:
     expose:
       - 22
     volumes:
-      -  ./public-keys:/root/.ssh/authorized_keys
+      - ./public-keys:/root/.ssh/authorized_keys
+      - ./id_rsa:/root/.ssh/id_rsa
+      - ./ssh-config:/root/.ssh/config
     environment:
       - CLUSTER_NAME=test
       - SSH_ENABLE_ROOT=true
