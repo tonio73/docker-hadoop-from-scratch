@@ -73,6 +73,11 @@ Example 2, copy a file to node 2:
 $ scp -P 2202 README.md root@localhost:
 ```
 
+SSH logins between two node 1 and node 3 of the network, use container name (see [docker-compose.yml](docker-compose.yml)):
+```ssh
+da512e42bb3f:~# ssh hadoop-from-scratch-worker-3
+```
+
 ## Caveats
 
 As the docker containers are reinitialized everytime the container is started, you may have some issues when login with SSH :
